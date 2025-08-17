@@ -1,9 +1,8 @@
 name: Docker Image CI
 
 on:
-  push:
-    tags:
-      - 'v*.*.*'
+  release:
+    types: [published]
 
 jobs:
   build-and-push:
@@ -21,17 +20,13 @@ jobs:
       - name: Build and tag Docker image
         run: |
           IMAGE_NAME=omercengel/port-scanner
-          VERSION_TAG=${GITHUB_REF#refs/tags/}
-          VERSION_TAG=${VERSION_TAG#v}
-          
-          docker build -t $IMAGE_NAME:$VERSION_TAG .
-          
-          docker tag $IMAGE_NAME:$VERSION_TAG $IMAGE_NAME:latest
+          VERSION=${GITHUB_REF_NAME}
+          docker build -t $IMAGE_NAME:$VERSION .
+          docker tag $IMAGE_NAME:$VERSION $IMAGE_NAME:latest
 
       - name: Push Docker image
         run: |
           IMAGE_NAME=omercengel/port-scanner
-          VERSION_TAG=${GITHUB_REF#refs/tags/}
-          VERSION_TAG=${VERSION_TAG#v}
-          docker push $IMAGE_NAME:$VERSION_TAG
+          VERSION=${GITHUB_REF_NAME}
+          docker push $IMAGE_NAME:$VERSION
           docker push $IMAGE_NAME:latest
