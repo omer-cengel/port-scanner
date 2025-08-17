@@ -96,12 +96,12 @@ docker run --rm -v /path/to/your/output:/output port-scanner -a 192.168.1.134 -p
 
 | Flag        | Short | Type   | Required | Default               | Description                      |
 | :---------- | :---- | :----- | :------- | :-------------------- | :------------------------------- |
-| `--address` | `-a`  | string | `true`   | -                   | domain or ip address             |
-| `--ports`   | `-p`  | string | `false`  | 1-65535             | range: 1-1024 or list: 80,443    |
-| `--mode`    | `-m`  | string | `false`  | default             | stealth, default, rapid          |
-| `--output`  | `-o`  | string | `false`  | YYYY-MM-DD_HH:MM:SS | output file name                 |
-| `--format`  | `-f`  | string | `false`  | txt                 | txt, json, csv                   |
-| `--timeout` | `-t`  | int    | `false`  | mode's timeout      | timeout per port in milliseconds |
+| `address` | `-a`  | string | `true`   | -                   | domain or ip address             |
+| `ports`   | `-p`  | string | `false`  | 1-65535             | range: 1-1024 or list: 80,443    |
+| `mode`    | `-m`  | string | `false`  | default             | stealth, default, rapid          |
+| `output`  | `-o`  | string | `false`  | YYYY-MM-DD_HH:MM:SS | output file name                 |
+| `format`  | `-f`  | string | `false`  | txt                 | txt, json, csv                   |
+| `timeout` | `-t`  | int    | `false`  | mode's timeout      | timeout per port in milliseconds |
 
 ## Contributing
 
