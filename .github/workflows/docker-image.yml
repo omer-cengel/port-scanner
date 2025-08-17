@@ -24,8 +24,7 @@ jobs:
       - name: Build and tag Docker image
         run: |
           IMAGE_NAME=omercengel/port-scanner
-          VERSION_TAG=${GITHUB_REF#refs/tags/}
-          VERSION_TAG=${VERSION_TAG#v}
+          VERSION_TAG=${{ github.event.inputs.version }}
           
           docker build -t $IMAGE_NAME:$VERSION_TAG .
           
@@ -34,7 +33,6 @@ jobs:
       - name: Push Docker image
         run: |
           IMAGE_NAME=omercengel/port-scanner
-          VERSION_TAG=${GITHUB_REF#refs/tags/}
-          VERSION_TAG=${VERSION_TAG#v}
+          VERSION_TAG=${{ github.event.inputs.version }}
           docker push $IMAGE_NAME:$VERSION_TAG
           docker push $IMAGE_NAME:latest
