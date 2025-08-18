@@ -40,6 +40,8 @@ docker run --rm port-scanner -h
 ```
 
 ### Build From Source
+This project requires Go 1.25 or later to build from source.
+
 
 Clone the repository:
 ```bash
